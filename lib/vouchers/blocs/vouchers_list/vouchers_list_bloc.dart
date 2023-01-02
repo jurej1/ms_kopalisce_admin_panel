@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:html';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coupon_repository/coupon_repository.dart';
@@ -26,11 +29,12 @@ class VouchersListBloc extends Bloc<VouchersListEvent, VouchersListState> {
       yield VouchersListLoading();
 
       QuerySnapshot querySnapshot = await _couponRepository.loadAllVouchers();
-
+      log(querySnapshot.docs.length.toString());
       List<Voucher> vouchers = querySnapshot.docs.map((e) => Voucher.fromDocumentSnapshot(e)).toList();
 
       yield VouchersListLoadSuccess(vouchers);
     } catch (error) {
+      log(error.toString());
       yield VouchersListFail();
     }
   }

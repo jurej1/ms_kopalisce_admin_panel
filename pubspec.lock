@@ -83,7 +83,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "670562811dc40c839f7a7c2f17549edc5cdb8735"
+      resolved-ref: "80970f29d5bcf7f272caabf64a5444b71702ce13"
       url: "https://github.com/jurej1/coupon_repository.git"
     source: git
     version: "0.0.0"
@@ -270,6 +270,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  qr_flutter:
+    dependency: "direct main"
+    description:
+      name: qr_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
