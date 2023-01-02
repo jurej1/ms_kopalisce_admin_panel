@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coupon_repository/coupon_repository.dart';
@@ -112,7 +114,7 @@ class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> 
   Stream<AddVoucherFormState> _mapFormSubmittedToState() async* {
     final number = VoucherNumberFormz.dirty(state.number.value);
     final description = VoucherDescriptionFormz.dirty(state.description.value);
-    final discountAmount = VoucherDiscountAmountFormz.dirty(state.description.value);
+    final discountAmount = VoucherDiscountAmountFormz.dirty(state.discountAmount.value);
     final name = VoucherNameFormz.dirty(state.name.value);
     final unit = VoucherUnitFormz.dirty(state.unit.value);
 
@@ -139,6 +141,8 @@ class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> 
           unit: state.unit.value,
           voucherNumber: state.number.value,
         );
+
+        log('DiscountAMount: $discountAmount');
 
         DocumentReference reference = await _couponRepository.addVoucher(voucher);
 
