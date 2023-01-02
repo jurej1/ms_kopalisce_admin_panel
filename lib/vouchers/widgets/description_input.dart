@@ -16,7 +16,7 @@ class VoucherDescriptionInput extends StatelessWidget {
           maxLength: VoucherDescriptionFormz.maxLength,
           decoration: InputDecoration(
             labelText: 'Description',
-            errorText: state.number.invalid ? 'Invalid' : null,
+            errorText: state.description.invalid ? 'Invalid' : null,
           ),
           onChanged: (val) {
             BlocProvider.of<AddVoucherFormBloc>(context).add(AddVoucherFormDescriptionUpdated(val));

@@ -27,15 +27,18 @@ class AddVoucherFormView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add Voucher'),
       ),
-      body: Column(
-        children: [
-          VoucherNameInput(key: UniqueKey()),
-          VoucherNumberInput(key: UniqueKey()),
-          VoucherUnitInput(key: UniqueKey()),
-          VoucherDiscountAmountInput(key: UniqueKey()),
-          VoucherDescriptionInput(key: UniqueKey()),
-          SubmitVoucherFormButton(key: UniqueKey()),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            VoucherNameInput(),
+            VoucherNumberInput(),
+            VoucherUnitInput(),
+            VoucherDiscountAmountInput(),
+            VoucherDescriptionInput(),
+            SubmitVoucherFormButton(),
+          ],
+        ),
       ),
     );
   }

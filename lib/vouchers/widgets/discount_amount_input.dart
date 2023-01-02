@@ -15,7 +15,7 @@ class VoucherDiscountAmountInput extends StatelessWidget {
           initialValue: state.discountAmount.value,
           decoration: InputDecoration(
             labelText: 'Discount Amount',
-            errorText: state.number.invalid ? 'Invalid' : null,
+            errorText: state.discountAmount.invalid ? 'Invalid' : null,
           ),
           onChanged: (val) {
             BlocProvider.of<AddVoucherFormBloc>(context).add(AddVoucherFormDiscountAmountUpdated(val));

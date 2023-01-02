@@ -16,7 +16,7 @@ class VoucherNameInput extends StatelessWidget {
           maxLength: VoucherNameFormz.maxLength,
           decoration: InputDecoration(
             labelText: 'Name',
-            errorText: state.number.invalid ? 'Invalid' : null,
+            errorText: state.name.invalid ? 'Invalid' : null,
           ),
           onChanged: (val) {
             BlocProvider.of<AddVoucherFormBloc>(context).add(AddVoucherFormNameUpdated(val));
