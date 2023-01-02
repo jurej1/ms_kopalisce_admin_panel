@@ -13,27 +13,45 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('App BAR'),
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 20),
-          Row(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(AddVoucherFormView.route(context));
-                },
-                child: const Text('Add Voucher'),
-              ),
-              const SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(VouchersListView.route(context));
-                },
-                child: const Text('Load All Vouchers'),
-              ),
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(AddVoucherFormView.route(context));
+                  },
+                  child: const Text('Add Voucher'),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(VouchersListView.route(context));
+                  },
+                  child: const Text('Load All Vouchers'),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Add Bathroom Ticket'),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(VouchersListView.route(context));
+                  },
+                  child: const Text('Load Bathroom Tickets'),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
