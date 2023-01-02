@@ -2,6 +2,7 @@ import 'package:coupon_repository/coupon_repository.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ms_kopalisce_admin_panel/prices/blocs/blocs.dart';
 import 'package:ms_kopalisce_admin_panel/utilities/sobota_svica_bloc_observer.dart';
 import 'package:ms_kopalisce_admin_panel/vouchers/blocs/blocs.dart';
 import 'package:price_repository/price_repository.dart';
@@ -51,7 +52,10 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => VouchersListBloc(couponRepository: _couponRepository)..add(VouchersListLoadRequested()),
-          )
+          ),
+          BlocProvider(
+            create: (context) => BathroomServicesBloc(priceRepository: _priceRepository)..add(BathroomServicesLoadRequested()),
+          ),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
