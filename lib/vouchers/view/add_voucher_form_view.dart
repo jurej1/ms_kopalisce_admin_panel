@@ -34,6 +34,7 @@ class AddVoucherFormView extends StatelessWidget {
           VoucherUnitInput(),
           VoucherDiscountAmountInput(),
           VoucherDescriptionInput(),
+          SubmitVoucherFormButton(),
         ],
       ),
     );

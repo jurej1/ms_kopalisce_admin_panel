@@ -2,6 +2,7 @@ import 'package:coupon_repository/coupon_repository.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ms_kopalisce_admin_panel/utilities/sobota_svica_bloc_observer.dart';
 
 import 'home.dart';
 
@@ -16,6 +17,7 @@ Future<void> main() async {
     ),
   );
 
+  Bloc.observer = SobotaSvicaBlocObserver();
   runApp(
     App(
       couponRepository: CouponRepository(),
