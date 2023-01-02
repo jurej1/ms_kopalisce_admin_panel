@@ -11,6 +11,7 @@ class SubmitVoucherFormButton extends StatelessWidget {
     return BlocBuilder<AddVoucherFormBloc, AddVoucherFormState>(
       builder: (context, state) {
         return ElevatedButton(
+          key: UniqueKey(),
           child: const Text('Submit'),
           onPressed: () {
             BlocProvider.of<AddVoucherFormBloc>(context).add(AddVoucherFormSubmitted());

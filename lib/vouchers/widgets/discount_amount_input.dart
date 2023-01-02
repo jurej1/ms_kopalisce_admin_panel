@@ -11,6 +11,7 @@ class VoucherDiscountAmountInput extends StatelessWidget {
     return BlocBuilder<AddVoucherFormBloc, AddVoucherFormState>(
       builder: (context, state) {
         return TextFormField(
+          key: ValueKey(state.discountAmount),
           initialValue: state.discountAmount.value,
           decoration: InputDecoration(
             labelText: 'Discount Amount',
