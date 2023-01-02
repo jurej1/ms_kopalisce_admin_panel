@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coupon_repository/coupon_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
@@ -127,18 +128,31 @@ class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> 
     );
 
     if (state.status.isValidated) {
-      yield state.copyWith(status: FormzStatus.submissionInProgress);
+      try {
+        yield state.copyWith(status: FormzStatus.submissionInProgress);
 
-      Voucher voucher = Voucher(
-        description: state.description.value,
-        discountAmount: state.discountAmount.toInt(),
-        id: '',
-        name: state.name.value,
-        unit: state.unit.value,
-        voucherNumber: state.number.value,
-      );
+        Voucher voucher = Voucher(
+          description: state.description.value,
+          discountAmount: state.discountAmount.toInt(),
+          id: '',
+          name: state.name.value,
+          unit: state.unit.value,
+          voucherNumber: state.number.value,
+        );
 
-      // _couponRepository.addVoucher();
+        DocumentReference reference = await _couponRepository.addVoucher(voucher);
+
+        voucher = voucher.copyWith(id: reference.id);
+
+        yield state.copyWith(
+          status: FormzStatus.submissionSuccess,
+          voucher: voucher,
+        );
+      } catch (e) {
+        yield state.copyWith(
+          status: FormzStatus.submissionFailure,
+        );
+      }
     }
   }
 }

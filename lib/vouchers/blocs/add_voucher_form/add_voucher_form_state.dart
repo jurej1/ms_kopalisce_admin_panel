@@ -8,6 +8,7 @@ class AddVoucherFormState extends Equatable {
     this.discountAmount = const VoucherDiscountAmountFormz.pure('0'),
     this.name = const VoucherNameFormz.pure(''),
     this.number = const VoucherNumberFormz.pure(''),
+    this.voucher,
   });
 
   final FormzStatus status;
@@ -16,9 +17,10 @@ class AddVoucherFormState extends Equatable {
   final VoucherDiscountAmountFormz discountAmount;
   final VoucherNameFormz name;
   final VoucherNumberFormz number;
+  final Voucher? voucher;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       status,
       description,
@@ -26,6 +28,7 @@ class AddVoucherFormState extends Equatable {
       discountAmount,
       name,
       number,
+      voucher,
     ];
   }
 
@@ -36,6 +39,7 @@ class AddVoucherFormState extends Equatable {
     VoucherDiscountAmountFormz? discountAmount,
     VoucherNameFormz? name,
     VoucherNumberFormz? number,
+    Voucher? voucher,
   }) {
     return AddVoucherFormState(
       status: status ?? this.status,
@@ -44,6 +48,7 @@ class AddVoucherFormState extends Equatable {
       discountAmount: discountAmount ?? this.discountAmount,
       name: name ?? this.name,
       number: number ?? this.number,
+      voucher: voucher ?? this.voucher,
     );
   }
 
