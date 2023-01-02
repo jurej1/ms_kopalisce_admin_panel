@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ms_kopalisce_admin_panel/utilities/sobota_svica_bloc_observer.dart';
+import 'package:ms_kopalisce_admin_panel/vouchers/blocs/blocs.dart';
 
 import 'home.dart';
 
@@ -40,12 +41,19 @@ class App extends StatelessWidget {
       providers: [
         RepositoryProvider.value(value: _couponRepository),
       ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => VouchersListBloc(couponRepository: _couponRepository)..add(VouchersListLoadRequested()),
+          )
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const Home(),
         ),
-        home: const Home(),
       ),
     );
   }

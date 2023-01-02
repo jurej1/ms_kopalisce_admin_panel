@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ms_kopalisce_admin_panel/vouchers/view/add_voucher_form_view.dart';
+
+import 'vouchers/view/view.dart';
 
 class Home extends StatelessWidget {
   const Home({
@@ -15,11 +16,22 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(AddVoucherFormView.route(context));
-            },
-            child: const Text('Add Voucher'),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(AddVoucherFormView.route(context));
+                },
+                child: const Text('Add Voucher'),
+              ),
+              const SizedBox(width: 10),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(VouchersListView.route(context));
+                },
+                child: const Text('Load All Vouchers'),
+              ),
+            ],
           ),
         ],
       ),

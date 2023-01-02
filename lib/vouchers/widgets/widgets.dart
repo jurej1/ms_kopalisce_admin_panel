@@ -4,3 +4,4 @@ export 'name_input.dart';
 export 'unit_input.dart';
 export 'voucher_number_input.dart';
 export 'submit_voucher_form_button.dart';
+export 'vouchers_list.dart';
