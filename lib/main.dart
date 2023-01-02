@@ -1,7 +1,9 @@
+import 'package:coupon_repository/coupon_repository.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'app.dart';
+import 'home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,20 +16,35 @@ Future<void> main() async {
     ),
   );
 
-  runApp(const MyApp());
+  runApp(
+    App(
+      couponRepository: CouponRepository(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({
+    Key? key,
+    required CouponRepository couponRepository,
+  })  : _couponRepository = couponRepository,
+        super(key: key);
+
+  final CouponRepository _couponRepository;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider.value(value: _couponRepository),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Home(),
       ),
-      home: const App(),
     );
   }
 }
