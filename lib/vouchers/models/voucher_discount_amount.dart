@@ -8,12 +8,10 @@ class VoucherDiscountAmountFormz extends FormzInput<String, VoucherDiscountAmoun
 
   @override
   VoucherDiscountAmountFormzValidationError? validator(String value) {
-    final b = RegExp(r'^[0-9]+$').hasMatch(value); // string contains only numbers == true
-
-    if (b == false) {
-      return VoucherDiscountAmountFormzValidationError.invalid;
+    if (int.tryParse(value) != null) {
+      return null;
     }
-    return null;
+    return VoucherDiscountAmountFormzValidationError.invalid;
   }
 
   int toInt() {
