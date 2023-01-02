@@ -83,7 +83,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: e7f6aa7afd380d7ae35601757088c4e2a12e6c12
+      resolved-ref: "670562811dc40c839f7a7c2f17549edc5cdb8735"
       url: "https://github.com/jurej1/coupon_repository.git"
     source: git
     version: "0.0.0"
