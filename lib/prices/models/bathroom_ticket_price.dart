@@ -13,4 +13,8 @@ class BathroomTicketPriceFormz extends FormzInput<String, BathroomTicketPriceFor
     }
     return null;
   }
+
+  double toDoubleValue() {
+    return double.parse(value);
+  }
 }
