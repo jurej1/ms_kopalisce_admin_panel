@@ -12,7 +12,7 @@ class AddBathroomTicketView extends StatelessWidget {
     return MaterialPageRoute(
       builder: (context) {
         return BlocProvider(
-          create: (context) => AddBathroomTicketBloc(
+          create: (_) => AddBathroomTicketBloc(
             priceRepository: RepositoryProvider.of<PriceRepository>(context),
           ),
           child: const AddBathroomTicketView(),
@@ -23,20 +23,26 @@ class AddBathroomTicketView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AddBathroomTicketBloc, AddBathroomTicketState>(
-      builder: (context, state) {
-        if (state.status.isSubmissionInProgress) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        return ListView(
-          children: [
-            BathroomTicketTitleInput(),
-            BathroomTicketPriceInput(),
-            BathroomTicketTypeInput(),
-            BathroomFormSubmitButton(),
-          ],
-        );
-      },
+    return Scaffold(
+      body: BlocBuilder<AddBathroomTicketBloc, AddBathroomTicketState>(
+        builder: (context, state) {
+          if (state.status.isSubmissionInProgress) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return ListView(
+            padding: const EdgeInsets.all(20),
+            children: [
+              BathroomTicketTitleInput(),
+              const SizedBox(height: 10),
+              BathroomTicketPriceInput(),
+              const SizedBox(height: 10),
+              BathroomTicketTypeInput(),
+              const SizedBox(height: 10),
+              BathroomFormSubmitButton(),
+            ],
+          );
+        },
+      ),
     );
   }
 }

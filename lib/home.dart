@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ms_kopalisce_admin_panel/prices/view/add_bathroom_ticket_view.dart';
 
 import 'vouchers/view/view.dart';
 
@@ -39,14 +40,14 @@ class Home extends StatelessWidget {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
                   child: const Text('Add Bathroom Ticket'),
+                  onPressed: () {
+                    Navigator.of(context).push(AddBathroomTicketView.route(context));
+                  },
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(VouchersListView.route(context));
-                  },
+                  onPressed: () {},
                   child: const Text('Load Bathroom Tickets'),
                 ),
               ],
