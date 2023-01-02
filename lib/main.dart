@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +5,14 @@ import 'app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyANqTAyb0zpMToT62Zp_GtnwFVmzLZT9Nc',
+      appId: '1:718825716231:web:b2966e05473bc386bf48a2',
+      messagingSenderId: '718825716231',
+      projectId: 'mskopalisce',
+    ),
+  );
 
   runApp(const MyApp());
 }
