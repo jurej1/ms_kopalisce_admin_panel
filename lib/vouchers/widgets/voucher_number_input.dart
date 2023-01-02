@@ -11,7 +11,7 @@ class VoucherNumberInput extends StatelessWidget {
     return BlocBuilder<AddVoucherFormBloc, AddVoucherFormState>(
       builder: (context, state) {
         return TextFormField(
-          key: ValueKey(state.number),
+          key: const ValueKey('voucherNumber'),
           initialValue: state.description.value,
           decoration: InputDecoration(
             labelText: 'Voucher Number',

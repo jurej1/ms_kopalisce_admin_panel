@@ -29,12 +29,12 @@ class AddVoucherFormView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          VoucherNameInput(),
-          VoucherNumberInput(),
-          VoucherUnitInput(),
-          VoucherDiscountAmountInput(),
-          VoucherDescriptionInput(),
-          SubmitVoucherFormButton(),
+          VoucherNameInput(key: UniqueKey()),
+          VoucherNumberInput(key: UniqueKey()),
+          VoucherUnitInput(key: UniqueKey()),
+          VoucherDiscountAmountInput(key: UniqueKey()),
+          VoucherDescriptionInput(key: UniqueKey()),
+          SubmitVoucherFormButton(key: UniqueKey()),
         ],
       ),
     );

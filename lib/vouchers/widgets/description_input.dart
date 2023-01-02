@@ -11,7 +11,7 @@ class VoucherDescriptionInput extends StatelessWidget {
     return BlocBuilder<AddVoucherFormBloc, AddVoucherFormState>(
       builder: (context, state) {
         return TextFormField(
-          key: ValueKey(state.description),
+          key: const ValueKey('descriptionInput'),
           initialValue: state.description.value,
           maxLength: VoucherDescriptionFormz.maxLength,
           decoration: InputDecoration(

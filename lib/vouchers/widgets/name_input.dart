@@ -11,7 +11,7 @@ class VoucherNameInput extends StatelessWidget {
     return BlocBuilder<AddVoucherFormBloc, AddVoucherFormState>(
       builder: (context, state) {
         return TextFormField(
-          key: ValueKey(state.name),
+          key: const ValueKey('voucherName'),
           initialValue: state.name.value,
           maxLength: VoucherNameFormz.maxLength,
           decoration: InputDecoration(
