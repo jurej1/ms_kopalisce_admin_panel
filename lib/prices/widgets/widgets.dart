@@ -5,3 +5,4 @@ export 'bathoom_form_submit_button.dart';
 export 'food_item_price_input.dart';
 export 'food_item_title_input.dart';
 export 'food_item_type_input.dart';
+export 'food_item_submit_button.dart';
