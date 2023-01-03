@@ -28,7 +28,7 @@ class VouchersListWheelBloc extends Bloc<VouchersListWheelEvent, VouchersListWhe
       QuerySnapshot snapshot = await _couponRepository.loadVouchersWheelCollection();
       List<Voucher> vouchers = snapshot.docs.map((e) => Voucher.fromDocumentSnapshot(e)).toList();
 
-      yield VouchersListWheelLoadSucces(vouchers);
+      yield VouchersListWheelLoadSuccess(vouchers);
     } catch (erorr) {
       yield VouchersListWheelFail();
     }

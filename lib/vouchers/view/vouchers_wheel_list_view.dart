@@ -17,17 +17,17 @@ class VouchersWheelListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<VouchersListBloc, VouchersListState>(
+      body: BlocBuilder<VouchersListWheelBloc, VouchersListWheelState>(
         builder: (context, state) {
-          if (state is VouchersListLoading) {
+          if (state is VouchersListWheelLoading) {
             return const _LoadingDisplayer();
-          } else if (state is VouchersListLoadSuccess) {
+          } else if (state is VouchersListWheelLoadSuccess) {
             if (state.vouchers.isNotEmpty) {
               return VouchersListDisplayer(vouchers: state.vouchers);
             } else {
               return Container();
             }
-          } else if (state is VouchersListFail) {
+          } else if (state is VouchersListWheelFail) {
             return const _LoadFailDisplayer();
           }
 

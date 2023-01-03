@@ -9,10 +9,10 @@ abstract class VouchersListWheelState extends Equatable {
 
 class VouchersListWheelLoading extends VouchersListWheelState {}
 
-class VouchersListWheelLoadSucces extends VouchersListWheelState {
+class VouchersListWheelLoadSuccess extends VouchersListWheelState {
   final List<Voucher> vouchers;
 
-  const VouchersListWheelLoadSucces(this.vouchers);
+  const VouchersListWheelLoadSuccess(this.vouchers);
 }
 
 class VouchersListWheelFail extends VouchersListWheelState {}
