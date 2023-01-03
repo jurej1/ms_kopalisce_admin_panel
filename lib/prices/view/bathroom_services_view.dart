@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ms_kopalisce_admin_panel/prices/blocs/blocs.dart';
 import 'package:price_repository/price_repository.dart';
 
-class BathroomTicketsView extends StatelessWidget {
-  const BathroomTicketsView({Key? key}) : super(key: key);
+class BathroomServicesView extends StatelessWidget {
+  const BathroomServicesView({Key? key}) : super(key: key);
 
   static MaterialPageRoute route(BuildContext context) {
     return MaterialPageRoute(builder: (context) {
-      return const BathroomTicketsView();
+      return const BathroomServicesView();
     });
   }
 
