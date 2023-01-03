@@ -72,6 +72,24 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(AddVoucherFormView.routeAddToWheel(context));
+                  },
+                  child: const Text('Add Voucher'),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(VouchersWheelListView.route(context));
+                  },
+                  child: const Text('Load All Wheel Vouchers'),
+                ),
+              ],
+            ),
           ],
         ),
       ),
