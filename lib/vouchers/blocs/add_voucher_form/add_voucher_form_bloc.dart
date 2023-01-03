@@ -10,14 +10,21 @@ import 'package:ms_kopalisce_admin_panel/vouchers/vouchers.dart';
 part 'add_voucher_form_event.dart';
 part 'add_voucher_form_state.dart';
 
-abstract class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> {
+enum VoucherStorageType {
+  normal,
+  wheel,
+}
+
+class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> {
   AddVoucherFormBloc({
     Voucher? voucher,
     required CouponRepository couponRepository,
+    required this.type,
   })  : _couponRepository = couponRepository,
         super(AddVoucherFormState.initial(voucher));
 
   final CouponRepository _couponRepository;
+  final VoucherStorageType type;
 
   @override
   Stream<AddVoucherFormState> mapEventToState(AddVoucherFormEvent event) async* {
@@ -32,7 +39,7 @@ abstract class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFo
     } else if (event is AddVoucherFormVoucherNumberUpdated) {
       yield _mapVoucherNumberUpdatedToState(event);
     } else if (event is AddVoucherFormSubmitted) {
-      yield* mapFormSubmittedToState();
+      yield* _mapFormSubmittedToState();
     }
   }
 
@@ -111,14 +118,7 @@ abstract class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFo
     );
   }
 
-  Stream<AddVoucherFormState> mapFormSubmittedToState();
-}
-
-class AddVoucherNormalFormBloc extends AddVoucherFormBloc {
-  AddVoucherNormalFormBloc({required super.couponRepository});
-
-  @override
-  Stream<AddVoucherFormState> mapFormSubmittedToState() async* {
+  Stream<AddVoucherFormState> _mapFormSubmittedToState() async* {
     final number = VoucherNumberFormz.dirty(state.number.value);
     final description = VoucherDescriptionFormz.dirty(state.description.value);
     final discountAmount = VoucherDiscountAmountFormz.dirty(state.discountAmount.value);
@@ -151,61 +151,9 @@ class AddVoucherNormalFormBloc extends AddVoucherFormBloc {
 
         log('DiscountAMount: $discountAmount');
 
-        DocumentReference reference = await _couponRepository.addVoucher(voucher);
-
-        voucher = voucher.copyWith(id: reference.id);
-
-        yield state.copyWith(
-          status: FormzStatus.submissionSuccess,
-          voucher: voucher,
-        );
-      } catch (e) {
-        yield state.copyWith(
-          status: FormzStatus.submissionFailure,
-        );
-      }
-    }
-  }
-}
-
-class AddVoucherWheelFormBloc extends AddVoucherFormBloc {
-  AddVoucherWheelFormBloc({required super.couponRepository});
-
-  @override
-  Stream<AddVoucherFormState> mapFormSubmittedToState() async* {
-    final number = VoucherNumberFormz.dirty(state.number.value);
-    final description = VoucherDescriptionFormz.dirty(state.description.value);
-    final discountAmount = VoucherDiscountAmountFormz.dirty(state.discountAmount.value);
-    final name = VoucherNameFormz.dirty(state.name.value);
-    final unit = VoucherUnitFormz.dirty(state.unit.value);
-
-    final status = Formz.validate([number, description, discountAmount, name, unit]);
-
-    yield state.copyWith(
-      status: status,
-      description: description,
-      discountAmount: discountAmount,
-      name: name,
-      number: number,
-      unit: unit,
-    );
-
-    if (state.status.isValidated) {
-      try {
-        yield state.copyWith(status: FormzStatus.submissionInProgress);
-
-        Voucher voucher = Voucher(
-          description: state.description.value,
-          discountAmount: state.discountAmount.toInt(),
-          id: '',
-          name: state.name.value,
-          unit: state.unit.value,
-          voucherNumber: state.number.value,
-        );
-
-        log('DiscountAMount: $discountAmount');
-
-        DocumentReference reference = await _couponRepository.addVoucherToWheel(voucher);
+        DocumentReference reference = type == VoucherStorageType.normal
+            ? await _couponRepository.addVoucher(voucher)
+            : await _couponRepository.addVoucherToWheel(voucher);
 
         voucher = voucher.copyWith(id: reference.id);
 
