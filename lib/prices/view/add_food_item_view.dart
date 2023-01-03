@@ -35,6 +35,7 @@ class AddFoodItemFormView extends StatelessWidget {
               FoodItemTitleInput(),
               FoodItemPriceInput(),
               FoodItemTypeInput(),
+              const SizedBox(height: 20),
               FoodItemSubmitButton(),
             ],
           );
