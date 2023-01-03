@@ -56,6 +56,9 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (context) => BathroomServicesBloc(priceRepository: _priceRepository)..add(BathroomServicesLoadRequested()),
           ),
+          BlocProvider(
+            create: (context) => VouchersListWheelBloc(couponRepository: _couponRepository)..add(VouchersListWheelLoadRequested()),
+          ),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
