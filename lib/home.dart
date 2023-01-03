@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ms_kopalisce_admin_panel/prices/prices.dart';
 import 'package:ms_kopalisce_admin_panel/prices/view/add_bathroom_ticket_view.dart';
+import 'package:ms_kopalisce_admin_panel/prices/view/add_food_item_view.dart';
 
 import 'vouchers/view/view.dart';
 
@@ -52,6 +53,21 @@ class Home extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(BathroomServicesView.route(context));
                   },
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                ElevatedButton(
+                  child: const Text('Add Food Item'),
+                  onPressed: () {
+                    Navigator.of(context).push(AddFoodItemFormView.route(context));
+                  },
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  child: const Text('Load Food Items'),
+                  onPressed: () {},
                 ),
               ],
             ),
