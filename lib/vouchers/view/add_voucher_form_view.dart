@@ -10,9 +10,9 @@ class AddVoucherFormView extends StatelessWidget {
 
   static routeNormal(BuildContext context) {
     return MaterialPageRoute(
-      builder: (context) {
+      builder: (_) {
         return BlocProvider(
-          create: (context) => AddVoucherNormalFormBloc(
+          create: (_) => AddVoucherNormalFormBloc(
             couponRepository: RepositoryProvider.of<CouponRepository>(context),
           ),
           child: const AddVoucherFormView(),
@@ -23,9 +23,9 @@ class AddVoucherFormView extends StatelessWidget {
 
   static routeAddToWheel(BuildContext context) {
     return MaterialPageRoute(
-      builder: (context) {
+      builder: (_) {
         return BlocProvider(
-          create: (context) => AddVoucherWheelFormBloc(
+          create: (_) => AddVoucherWheelFormBloc(
             couponRepository: RepositoryProvider.of<CouponRepository>(context),
           ),
           child: const AddVoucherFormView(),

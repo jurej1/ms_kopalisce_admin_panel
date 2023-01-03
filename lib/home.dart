@@ -79,7 +79,7 @@ class Home extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(AddVoucherFormView.routeAddToWheel(context));
                   },
-                  child: const Text('Add Voucher'),
+                  child: const Text('Add Voucher To Wheel'),
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
