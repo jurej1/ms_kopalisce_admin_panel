@@ -10,8 +10,8 @@ import 'package:ms_kopalisce_admin_panel/vouchers/vouchers.dart';
 part 'add_voucher_form_event.dart';
 part 'add_voucher_form_state.dart';
 
-abstract class _AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> {
-  _AddVoucherFormBloc({
+abstract class AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherFormState> {
+  AddVoucherFormBloc({
     Voucher? voucher,
     required CouponRepository couponRepository,
   })  : _couponRepository = couponRepository,
@@ -114,8 +114,8 @@ abstract class _AddVoucherFormBloc extends Bloc<AddVoucherFormEvent, AddVoucherF
   Stream<AddVoucherFormState> mapFormSubmittedToState();
 }
 
-class AddVoucherFormBloc extends _AddVoucherFormBloc {
-  AddVoucherFormBloc({required super.couponRepository});
+class AddVoucherNormalFormBloc extends AddVoucherFormBloc {
+  AddVoucherNormalFormBloc({required super.couponRepository});
 
   @override
   Stream<AddVoucherFormState> mapFormSubmittedToState() async* {
@@ -168,7 +168,7 @@ class AddVoucherFormBloc extends _AddVoucherFormBloc {
   }
 }
 
-class AddVoucherWheelFormBloc extends _AddVoucherFormBloc {
+class AddVoucherWheelFormBloc extends AddVoucherFormBloc {
   AddVoucherWheelFormBloc({required super.couponRepository});
 
   @override

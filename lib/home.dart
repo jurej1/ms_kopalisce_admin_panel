@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(AddVoucherFormView.route(context));
+                    Navigator.of(context).push(AddVoucherFormView.routeNormal(context));
                   },
                   child: const Text('Add Voucher'),
                 ),

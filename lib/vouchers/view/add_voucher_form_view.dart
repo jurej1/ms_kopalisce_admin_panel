@@ -8,11 +8,24 @@ import '../widgets/widgets.dart';
 class AddVoucherFormView extends StatelessWidget {
   const AddVoucherFormView({Key? key}) : super(key: key);
 
-  static route(BuildContext context) {
+  static routeNormal(BuildContext context) {
     return MaterialPageRoute(
       builder: (context) {
         return BlocProvider(
-          create: (context) => AddVoucherFormBloc(
+          create: (context) => AddVoucherNormalFormBloc(
+            couponRepository: RepositoryProvider.of<CouponRepository>(context),
+          ),
+          child: const AddVoucherFormView(),
+        );
+      },
+    );
+  }
+
+  static routeAddToWheel(BuildContext context) {
+    return MaterialPageRoute(
+      builder: (context) {
+        return BlocProvider(
+          create: (context) => AddVoucherWheelFormBloc(
             couponRepository: RepositoryProvider.of<CouponRepository>(context),
           ),
           child: const AddVoucherFormView(),
