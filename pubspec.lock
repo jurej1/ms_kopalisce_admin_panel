@@ -293,6 +293,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  quiz_repository:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "15cc302503860416c2deafe0e70f0b38f753897a"
+      url: "https://github.com/jurej1/quiz_repository.git"
+    source: git
+    version: "0.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

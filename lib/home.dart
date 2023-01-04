@@ -92,16 +92,12 @@ class Home extends StatelessWidget {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(AddVoucherFormView.routeAddToWheel(context));
-                  },
+                  onPressed: () {},
                   child: const Text('Add Question'),
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(VouchersWheelListView.route(context));
-                  },
+                  onPressed: () {},
                   child: const Text('Load all Quiz Questions'),
                 ),
               ],
