@@ -83,7 +83,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "4024efb66dcec47263fcf1572efb998a3ca1e576"
+      resolved-ref: "950f533c732f23a8a29c95f3b5184bcf4cd735cd"
       url: "https://github.com/jurej1/coupon_repository.git"
     source: git
     version: "0.0.0"
@@ -268,7 +268,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "7c66dadeb06511c0a3ec51e451a97271f7acfa10"
+      resolved-ref: "3b76bb0db540eab9f1abe4c468398cd4b40c7202"
       url: "https://github.com/jurej1/price_repository.git"
     source: git
     version: "0.0.0"
