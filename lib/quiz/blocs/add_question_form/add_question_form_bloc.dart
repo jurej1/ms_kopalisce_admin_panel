@@ -19,13 +19,13 @@ class AddQuestionFormBloc extends Bloc<AddQuestionFormEvent, AddQuestionFormStat
   Stream<AddQuestionFormState> mapEventToState(AddQuestionFormEvent event) async* {
     if (event is AddQuestionFormTextUpdated) {
       yield _mapQuestionTextUpdatedToState(event);
-    } else if (event is AddQuestionFormAnwserAdded) {
+    } else if (event is AddQuestionFormAnswerAdded) {
       yield _mapAnwserAddedToState(event);
-    } else if (event is AddQuestionFormAnwserRemoved) {
+    } else if (event is AddQuestionFormAnswerRemoved) {
       yield _mapAnwserRemovedToState(event);
-    } else if (event is AddQuestionFormAnwserUpdated) {
+    } else if (event is AddQuestionFormAnswerUpdated) {
       yield _mapAnwserUpdatedToState(event);
-    } else if (event is AddQuestionFormRightAnwserUpdated) {
+    } else if (event is AddQuestionFormRightAnswerUpdated) {
       yield _mapRightAnwserUpdatedToState(event);
     } else if (event is AddQuestionFormSubmitted) {
       yield* _mapFormSubmittedToState();
@@ -44,7 +44,7 @@ class AddQuestionFormBloc extends Bloc<AddQuestionFormEvent, AddQuestionFormStat
     );
   }
 
-  AddQuestionFormState _mapAnwserAddedToState(AddQuestionFormAnwserAdded event) {
+  AddQuestionFormState _mapAnwserAddedToState(AddQuestionFormAnswerAdded event) {
     final newList = state.anwsersList.addElementToList(event.value);
     final anwsersList = AnwsersListFormz.dirty(newList);
 
@@ -57,7 +57,7 @@ class AddQuestionFormBloc extends Bloc<AddQuestionFormEvent, AddQuestionFormStat
     );
   }
 
-  AddQuestionFormState _mapAnwserRemovedToState(AddQuestionFormAnwserRemoved event) {
+  AddQuestionFormState _mapAnwserRemovedToState(AddQuestionFormAnswerRemoved event) {
     final newList = state.anwsersList.removeElementFromListById(event.value);
 
     final anwsersList = AnwsersListFormz.dirty(newList);
@@ -70,7 +70,7 @@ class AddQuestionFormBloc extends Bloc<AddQuestionFormEvent, AddQuestionFormStat
     );
   }
 
-  AddQuestionFormState _mapAnwserUpdatedToState(AddQuestionFormAnwserUpdated event) {
+  AddQuestionFormState _mapAnwserUpdatedToState(AddQuestionFormAnswerUpdated event) {
     final newList = state.anwsersList.updateAnwserFromList(event.value);
 
     final anwsersList = AnwsersListFormz.dirty(newList);
@@ -83,7 +83,7 @@ class AddQuestionFormBloc extends Bloc<AddQuestionFormEvent, AddQuestionFormStat
     );
   }
 
-  AddQuestionFormState _mapRightAnwserUpdatedToState(AddQuestionFormRightAnwserUpdated event) {
+  AddQuestionFormState _mapRightAnwserUpdatedToState(AddQuestionFormRightAnswerUpdated event) {
     final newList = state.anwsersList.updateIsRight(event.value);
 
     final anwsersList = AnwsersListFormz.dirty(newList);

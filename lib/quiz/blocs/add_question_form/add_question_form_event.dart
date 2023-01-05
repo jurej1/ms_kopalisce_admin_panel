@@ -16,37 +16,37 @@ class AddQuestionFormTextUpdated extends AddQuestionFormEvent {
   List<Object> get props => [value];
 }
 
-class AddQuestionFormAnwserAdded extends AddQuestionFormEvent {
+class AddQuestionFormAnswerAdded extends AddQuestionFormEvent {
   final String value;
 
-  const AddQuestionFormAnwserAdded(this.value);
+  const AddQuestionFormAnswerAdded(this.value);
 
   @override
   List<Object> get props => [value];
 }
 
-class AddQuestionFormAnwserRemoved extends AddQuestionFormEvent {
+class AddQuestionFormAnswerRemoved extends AddQuestionFormEvent {
   final int value;
 
-  const AddQuestionFormAnwserRemoved(this.value);
+  const AddQuestionFormAnswerRemoved(this.value);
 
   @override
   List<Object> get props => [value];
 }
 
-class AddQuestionFormAnwserUpdated extends AddQuestionFormEvent {
+class AddQuestionFormAnswerUpdated extends AddQuestionFormEvent {
   final AnswerForm value;
 
-  const AddQuestionFormAnwserUpdated(this.value);
+  const AddQuestionFormAnswerUpdated(this.value);
 
   @override
   List<Object> get props => [value];
 }
 
-class AddQuestionFormRightAnwserUpdated extends AddQuestionFormEvent {
+class AddQuestionFormRightAnswerUpdated extends AddQuestionFormEvent {
   final AnswerForm value;
 
-  const AddQuestionFormRightAnwserUpdated(this.value);
+  const AddQuestionFormRightAnswerUpdated(this.value);
 
   @override
   List<Object> get props => [value];

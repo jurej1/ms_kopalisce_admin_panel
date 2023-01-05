@@ -29,7 +29,7 @@ class AddAnswerView extends StatelessWidget {
     return BlocListener<AddAnswerFormBloc, AddAnswerFormState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
-          BlocProvider.of<AddQuestionFormBloc>(context).add(AddQuestionFormAnwserAdded(state.text.value));
+          BlocProvider.of<AddQuestionFormBloc>(context).add(AddQuestionFormAnswerAdded(state.text.value));
           Navigator.of(context).pop();
         }
       },

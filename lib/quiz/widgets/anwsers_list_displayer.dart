@@ -22,6 +22,22 @@ class AnwsersListDisplayer extends StatelessWidget {
             return ListTile(
               key: ValueKey(item),
               title: Text(item.text),
+              trailing: Row(
+                children: [
+                  Checkbox(
+                    value: item.isRight,
+                    onChanged: (val) {
+                      BlocProvider.of<AddQuestionFormBloc>(context).add(AddQuestionFormRightAnswerUpdated(item));
+                    },
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      BlocProvider.of<AddQuestionFormBloc>(context).add(AddQuestionFormAnswerRemoved(index));
+                    },
+                    icon: const Icon(Icons.delete),
+                  ),
+                ],
+              ),
             );
           },
           separatorBuilder: (context, index) {
