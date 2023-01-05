@@ -13,25 +13,31 @@ class QuestionsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      padding: const EdgeInsets.all(20),
       itemBuilder: (context, index) {
         final item = _questions[index];
         return Card(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(item.questionText),
-              ...item.anwsers.map(
-                (e) {
-                  final bool isRight = e.id == item.rightAnwser.id;
-                  return Text(
-                    item.questionText,
-                    style: TextStyle(
-                      color: isRight ? Colors.blue : Colors.black,
-                    ),
-                  );
-                },
-              ).toList(),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(item.questionText),
+                const SizedBox(height: 5),
+                const Text('Answers'),
+                ...item.anwsers.map(
+                  (e) {
+                    final bool isRight = e.id == item.rightAnwser.id;
+                    return Text(
+                      e.text,
+                      style: TextStyle(
+                        color: isRight ? Colors.blue : Colors.black,
+                      ),
+                    );
+                  },
+                ).toList(),
+              ],
+            ),
           ),
         );
       },

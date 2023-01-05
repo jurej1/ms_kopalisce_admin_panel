@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ms_kopalisce_admin_panel/quiz/quiz.dart';
 
 import 'prices/prices.dart';
+import 'quiz/quiz.dart';
 import 'vouchers/view/view.dart';
 
 class Home extends StatelessWidget {
@@ -100,7 +100,9 @@ class Home extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(QuestionsView.route(context));
+                  },
                   child: const Text('Load all Quiz Questions'),
                 ),
               ],

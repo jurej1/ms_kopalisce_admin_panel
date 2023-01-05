@@ -298,7 +298,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "2cd3feb1ee4bad5fd244cf0308a0debb0cfb8d0c"
+      resolved-ref: "04d82898e2479a22e0a7fab855bf132aac8ff45a"
       url: "https://github.com/jurej1/quiz_repository.git"
     source: git
     version: "0.0.0"
