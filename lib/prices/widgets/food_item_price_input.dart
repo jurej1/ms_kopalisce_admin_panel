@@ -13,7 +13,7 @@ class FoodItemPriceInput extends StatelessWidget {
         return TextFormField(
           initialValue: state.price.value,
           decoration: InputDecoration(
-            labelText: 'Priec',
+            labelText: 'Price',
             errorText: state.price.invalid ? 'Invalid' : null,
           ),
           onChanged: (value) {
