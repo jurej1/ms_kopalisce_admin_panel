@@ -1,4 +1,4 @@
-part of 'add_anwser_form_bloc.dart';
+part of 'add_answer_form_bloc.dart';
 
 class AddAnswerFormState extends Equatable {
   const AddAnswerFormState({

@@ -4,7 +4,7 @@ import 'package:formz/formz.dart';
 
 import '../../quiz.dart';
 
-part 'add_anwser_form_event.dart';
+part 'add_answer_form_event.dart';
 part 'add_anwser_form_state.dart';
 
 class AddAnswerFormBloc extends Bloc<AddAnswerFormEvent, AddAnswerFormState> {
