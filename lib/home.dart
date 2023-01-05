@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ms_kopalisce_admin_panel/quiz/quiz.dart';
 
 import 'prices/prices.dart';
 import 'vouchers/view/view.dart';
@@ -92,7 +93,9 @@ class Home extends StatelessWidget {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(AddQuestionFormView.route(context));
+                  },
                   child: const Text('Add Question'),
                 ),
                 const SizedBox(width: 10),

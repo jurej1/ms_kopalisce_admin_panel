@@ -6,6 +6,7 @@ import 'package:ms_kopalisce_admin_panel/prices/blocs/blocs.dart';
 import 'package:ms_kopalisce_admin_panel/utilities/sobota_svica_bloc_observer.dart';
 import 'package:ms_kopalisce_admin_panel/vouchers/blocs/blocs.dart';
 import 'package:price_repository/price_repository.dart';
+import 'package:quiz_repository/quiz_repository.dart';
 
 import 'home.dart';
 
@@ -25,6 +26,7 @@ Future<void> main() async {
     App(
       couponRepository: CouponRepository(),
       priceRepository: PriceRepository(),
+      quizRepository: QuizRepository(),
     ),
   );
 }
@@ -34,12 +36,15 @@ class App extends StatelessWidget {
     Key? key,
     required CouponRepository couponRepository,
     required PriceRepository priceRepository,
+    required QuizRepository quizRepository,
   })  : _couponRepository = couponRepository,
         _priceRepository = priceRepository,
+        _quizRepository = quizRepository,
         super(key: key);
 
   final CouponRepository _couponRepository;
   final PriceRepository _priceRepository;
+  final QuizRepository _quizRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +52,7 @@ class App extends StatelessWidget {
       providers: [
         RepositoryProvider.value(value: _couponRepository),
         RepositoryProvider.value(value: _priceRepository),
+        RepositoryProvider.value(value: _quizRepository),
       ],
       child: MultiBlocProvider(
         providers: [

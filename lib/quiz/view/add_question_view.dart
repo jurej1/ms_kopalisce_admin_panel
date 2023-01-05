@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ms_kopalisce_admin_panel/quiz/quiz.dart';
+import 'package:quiz_repository/quiz_repository.dart';
 
 class AddQuestionFormView extends StatelessWidget {
   const AddQuestionFormView({Key? key}) : super(key: key);
@@ -7,7 +9,12 @@ class AddQuestionFormView extends StatelessWidget {
   static MaterialPageRoute route(BuildContext context) {
     return MaterialPageRoute(
       builder: (context) {
-        return const AddQuestionFormView();
+        return BlocProvider(
+          create: (context) => AddQuestionFormBloc(
+            quizRepository: RepositoryProvider.of<QuizRepository>(context),
+          ),
+          child: const AddQuestionFormView(),
+        );
       },
     );
   }
@@ -15,10 +22,16 @@ class AddQuestionFormView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          const AddQuestionSubmitButton(),
+          const SizedBox(width: 10),
+        ],
+      ),
       body: ListView(
+        padding: const EdgeInsets.all(10),
         children: [
-          AnwserTextInput(),
+          const QuestionTextInput(),
         ],
       ),
     );
