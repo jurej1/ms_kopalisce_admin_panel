@@ -23,6 +23,7 @@ class AnwsersListDisplayer extends StatelessWidget {
               key: ValueKey(item),
               title: Text(item.text),
               trailing: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Checkbox(
                     value: item.isRight,
