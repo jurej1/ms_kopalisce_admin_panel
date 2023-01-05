@@ -1,6 +1,6 @@
 import 'package:quiz_repository/quiz_repository.dart';
 
-class AnswerForm extends Anwser {
+class AnswerForm extends Answer {
   const AnswerForm({
     required super.id,
     required super.text,
@@ -25,7 +25,7 @@ class AnswerForm extends Anwser {
   @override
   List<Object?> get props => [id, text, isRight];
 
-  static List<Anwser> toAnwsersList(List<AnswerForm> anwserFormList) {
-    return anwserFormList.map((e) => Anwser(id: e.id, text: e.text)).toList();
+  static List<Answer> toAnwsersList(List<AnswerForm> anwserFormList) {
+    return anwserFormList.map((e) => Answer(id: e.id, text: e.text)).toList();
   }
 }
