@@ -108,7 +108,7 @@ class AddQuestionFormBloc extends Bloc<AddQuestionFormEvent, AddQuestionFormStat
       try {
         yield state.copyWith(status: FormzStatus.submissionInProgress);
 
-        final anwsersList = AnwserForm.toAnwsersList(state.anwsersList.value);
+        final anwsersList = AnswerForm.toAnwsersList(state.anwsersList.value);
         final rightAnwser = state.anwsersList.value.firstWhere((element) => element.isRight);
 
         await _quizRepository.addQuestion(

@@ -35,7 +35,7 @@ class AddQuestionFormAnwserRemoved extends AddQuestionFormEvent {
 }
 
 class AddQuestionFormAnwserUpdated extends AddQuestionFormEvent {
-  final AnwserForm value;
+  final AnswerForm value;
 
   const AddQuestionFormAnwserUpdated(this.value);
 
@@ -44,7 +44,7 @@ class AddQuestionFormAnwserUpdated extends AddQuestionFormEvent {
 }
 
 class AddQuestionFormRightAnwserUpdated extends AddQuestionFormEvent {
-  final AnwserForm value;
+  final AnswerForm value;
 
   const AddQuestionFormRightAnwserUpdated(this.value);
 

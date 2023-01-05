@@ -5,37 +5,37 @@ import 'models.dart';
 
 enum AnwserListFormzValidationError { invalid }
 
-class AnwsersListFormz extends FormzInput<List<AnwserForm>, AnwserListFormzValidationError> {
+class AnwsersListFormz extends FormzInput<List<AnswerForm>, AnwserListFormzValidationError> {
   const AnwsersListFormz.dirty(super.value) : super.dirty();
   const AnwsersListFormz.pure(super.value) : super.pure();
 
   int get maxAnwsersLenght => 4;
   @override
-  AnwserListFormzValidationError? validator(List<AnwserForm> value) {
+  AnwserListFormzValidationError? validator(List<AnswerForm> value) {
     if (value.length > maxAnwsersLenght) {
       return AnwserListFormzValidationError.invalid;
     }
     return null;
   }
 
-  List<AnwserForm> addElementToList(String text) {
+  List<AnswerForm> addElementToList(String text) {
     final elementsLenght = value.length;
 
     if (elementsLenght == 0) {
-      return [AnwserForm(id: elementsLenght, text: text, isRight: true)];
+      return [AnswerForm(id: elementsLenght, text: text, isRight: true)];
     }
-    return List.from(value)..add(AnwserForm(id: elementsLenght, text: text, isRight: false));
+    return List.from(value)..add(AnswerForm(id: elementsLenght, text: text, isRight: false));
   }
 
-  List<AnwserForm> removeElementFromListById(int id) {
-    List<AnwserForm> removedList = List.from(value)..removeWhere((element) => element.id == id);
+  List<AnswerForm> removeElementFromListById(int id) {
+    List<AnswerForm> removedList = List.from(value)..removeWhere((element) => element.id == id);
 
     if (removedList.isEmpty) {
       return [];
     }
 
     int index = 0;
-    List<AnwserForm> cleanedList = removedList.map((e) {
+    List<AnswerForm> cleanedList = removedList.map((e) {
       int indexCopy = index;
       index++;
       return e.copyWith(id: indexCopy);
@@ -56,7 +56,7 @@ class AnwsersListFormz extends FormzInput<List<AnwserForm>, AnwserListFormzValid
     }
   }
 
-  List<AnwserForm> updateAnwserFromList(Anwser anwser) {
+  List<AnswerForm> updateAnwserFromList(Anwser anwser) {
     return List.from(value)
       ..map(
         (e) {
@@ -69,8 +69,8 @@ class AnwsersListFormz extends FormzInput<List<AnwserForm>, AnwserListFormzValid
       );
   }
 
-  List<AnwserForm> updateIsRight(AnwserForm anwser) {
-    return List<AnwserForm>.from(value).map(
+  List<AnswerForm> updateIsRight(AnswerForm anwser) {
+    return List<AnswerForm>.from(value).map(
       (e) {
         if (anwser.id == e.id) {
           return anwser.copyWith(isRight: true);

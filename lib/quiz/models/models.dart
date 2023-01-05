@@ -1,4 +1,4 @@
-export 'anwser_text.dart';
-export 'anwsers_list.dart';
+export 'answer_text.dart';
+export 'answers_list.dart';
 export 'question_text.dart';
-export 'anwser_form.dart';
+export 'answser_form.dart';

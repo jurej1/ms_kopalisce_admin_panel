@@ -1,7 +1,7 @@
 import 'package:quiz_repository/quiz_repository.dart';
 
-class AnwserForm extends Anwser {
-  const AnwserForm({
+class AnswerForm extends Anwser {
+  const AnswerForm({
     required super.id,
     required super.text,
     required this.isRight,
@@ -10,12 +10,12 @@ class AnwserForm extends Anwser {
   final bool isRight;
 
   @override
-  AnwserForm copyWith({
+  AnswerForm copyWith({
     bool? isRight,
     int? id,
     String? text,
   }) {
-    return AnwserForm(
+    return AnswerForm(
       id: id ?? this.id,
       isRight: isRight ?? this.isRight,
       text: text ?? this.text,
@@ -25,7 +25,7 @@ class AnwserForm extends Anwser {
   @override
   List<Object?> get props => [id, text, isRight];
 
-  static List<Anwser> toAnwsersList(List<AnwserForm> anwserFormList) {
+  static List<Anwser> toAnwsersList(List<AnswerForm> anwserFormList) {
     return anwserFormList.map((e) => Anwser(id: e.id, text: e.text)).toList();
   }
 }
