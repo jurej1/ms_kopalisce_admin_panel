@@ -15,6 +15,7 @@ class AnwsersListDisplayer extends StatelessWidget {
         }
         final answers = state.anwsersList.value;
         return ListView.separated(
+          shrinkWrap: true,
           itemBuilder: (context, index) {
             final item = answers[index];
 
