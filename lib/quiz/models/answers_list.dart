@@ -1,5 +1,4 @@
 import 'package:formz/formz.dart';
-import 'package:quiz_repository/quiz_repository.dart';
 
 import 'models.dart';
 
@@ -56,7 +55,7 @@ class AnwsersListFormz extends FormzInput<List<AnswerForm>, AnwserListFormzValid
     }
   }
 
-  List<AnswerForm> updateAnwserFromList(Anwser anwser) {
+  List<AnswerForm> updateAnwserFromList(AnswerForm anwser) {
     return List.from(value)
       ..map(
         (e) {

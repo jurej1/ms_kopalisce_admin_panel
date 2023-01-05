@@ -32,6 +32,10 @@ class AddQuestionFormView extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         children: [
           const QuestionTextInput(),
+          const SizedBox(height: 20),
+          AddAnwserButton(),
+          const SizedBox(height: 20),
+          AnwsersListDisplayer(),
         ],
       ),
     );

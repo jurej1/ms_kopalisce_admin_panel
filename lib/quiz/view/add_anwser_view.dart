@@ -39,6 +39,7 @@ class AddAnswerView extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           children: [
             AnwserTextInput(),
+            const SizedBox(height: 10),
             AddAnwserSubmitButton(),
           ],
         ),
