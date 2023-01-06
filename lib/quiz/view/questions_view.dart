@@ -22,6 +22,7 @@ class QuestionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(),
       body: SizedBox(
         height: size.height,
         width: size.width,
