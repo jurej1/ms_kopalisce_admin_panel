@@ -30,18 +30,18 @@ class AddQuestionFormView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          actions: [
-            const AddQuestionSubmitButton(),
-            const SizedBox(width: 10),
+          actions: const [
+            AddQuestionSubmitButton(),
+            SizedBox(width: 10),
           ],
         ),
         body: ListView(
           padding: const EdgeInsets.all(10),
-          children: [
-            const QuestionTextInput(),
-            const SizedBox(height: 20),
+          children: const [
+            QuestionTextInput(),
+            SizedBox(height: 20),
             AddAnwserButton(),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             AnwsersListDisplayer(),
           ],
         ),

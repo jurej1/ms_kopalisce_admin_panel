@@ -114,7 +114,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.4"
+    version: "4.2.5"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
@@ -268,7 +268,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "3b76bb0db540eab9f1abe4c468398cd4b40c7202"
+      resolved-ref: e34d0c93af5d02750543b8aeda180d0948f997fb
       url: "https://github.com/jurej1/price_repository.git"
     source: git
     version: "0.0.0"
@@ -298,7 +298,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "04d82898e2479a22e0a7fab855bf132aac8ff45a"
+      resolved-ref: b17bdf6bd8223d111be6f3fb9d990b2a55197a6c
       url: "https://github.com/jurej1/quiz_repository.git"
     source: git
     version: "0.0.0"
