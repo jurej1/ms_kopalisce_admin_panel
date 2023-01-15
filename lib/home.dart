@@ -23,6 +23,15 @@ class Home extends StatelessWidget {
             Row(
               children: [
                 ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Open Time Form'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(AddVoucherFormView.routeNormal(context));
                   },

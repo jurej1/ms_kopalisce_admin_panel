@@ -1,1 +1,1 @@
-export 'open_time_form.dart';
+export 'open_time_view.dart';
