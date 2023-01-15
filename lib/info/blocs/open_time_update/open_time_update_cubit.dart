@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:info_repository/info_repository.dart';
@@ -15,10 +17,11 @@ class OpenTimeUpdateCubit extends Cubit<OpenTimeUpdateState> {
     emit(OpenTimeUpdateLoading());
 
     try {
-      infoRepository.setOpenTime(val);
+      await infoRepository.setOpenTime(val);
 
       emit(OpenTimeUpdateSuccess(val));
     } catch (e) {
+      log(e.toString());
       emit(OpenTimeUpdateFail());
     }
   }

@@ -93,7 +93,7 @@ class _SubmitButton extends StatelessWidget {
           onPressed: () {
             BlocProvider.of<OpenTimeUpdateCubit>(context).updateToFirebase(openTime);
           },
-          child: state is OpenTimeUpdateLoading ? CircularProgressIndicator() : Text('Submit'),
+          child: (state is OpenTimeUpdateLoading) ? const CircularProgressIndicator() : const Text('Submit'),
         );
       },
     );
