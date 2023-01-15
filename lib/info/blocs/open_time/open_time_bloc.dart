@@ -31,6 +31,7 @@ class OpenTimeBloc extends Bloc<OpenTimeEvent, OpenTimeState> {
     try {
       DocumentSnapshot documentSnapshot = await _infoRepository.getOpenTime();
 
+      log(documentSnapshot.data().toString());
       OpenTime time = OpenTime.fromDocumentSnapshot(documentSnapshot);
 
       yield OpenTimeLoadSuccess(time, status: FormStatus.pure);

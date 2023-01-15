@@ -205,7 +205,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "02d09ac3894a3703d65d314161576a1cc9ce020d"
+      resolved-ref: "34965cd3934271fda271f52224da88b3d49a885d"
       url: "https://github.com/jurej1/info_repository.git"
     source: git
     version: "0.0.0"
