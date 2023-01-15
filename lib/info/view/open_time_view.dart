@@ -10,10 +10,19 @@ class OpenTimeView extends StatelessWidget {
   static route(BuildContext context) {
     return MaterialPageRoute(
       builder: (context) {
-        return BlocProvider(
-          create: (context) => OpenTimeBloc(
-            infoRepository: RepositoryProvider.of<InfoRepository>(context),
-          )..add(OpenTimeLoadRequested()),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => OpenTimeBloc(
+                infoRepository: RepositoryProvider.of<InfoRepository>(context),
+              )..add(OpenTimeLoadRequested()),
+            ),
+            BlocProvider(
+              create: (context) => OpenTimeUpdateCubit(
+                RepositoryProvider.of<InfoRepository>(context),
+              ),
+            )
+          ],
           child: const OpenTimeView(),
         );
       },
@@ -23,12 +32,30 @@ class OpenTimeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          BlocBuilder<OpenTimeBloc, OpenTimeState>(
+            builder: (context, state) {
+              if (state is OpenTimeLoadSuccess) {
+                if (state.status == FormStatus.dirty) {
+                  return _SubmitButton(openTime: state.openTime);
+                }
+                return Container();
+              }
+              return Container();
+            },
+          )
+        ],
+      ),
       body: BlocBuilder<OpenTimeBloc, OpenTimeState>(
         builder: (context, state) {
           if (state is OpenTimeLoading) {
             return const _LoadingScreen();
           } else if (state is OpenTimeLoadSuccess) {
-            return OpenTimeDisplayer(openTime: state.openTime);
+            return OpenTimeDisplayer(
+              openTime: state.openTime,
+              status: state.status,
+            );
           } else if (state is OpenTimeFail) {
             return Container();
           }
@@ -46,6 +73,29 @@ class _LoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: CircularProgressIndicator(),
+    );
+  }
+}
+
+class _SubmitButton extends StatelessWidget {
+  const _SubmitButton({
+    Key? key,
+    required this.openTime,
+  }) : super(key: key);
+
+  final OpenTime openTime;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<OpenTimeUpdateCubit, OpenTimeUpdateState>(
+      builder: (context, state) {
+        return ElevatedButton(
+          onPressed: () {
+            BlocProvider.of<OpenTimeUpdateCubit>(context).updateToFirebase(openTime);
+          },
+          child: const Text('Submit'),
+        );
+      },
     );
   }
 }

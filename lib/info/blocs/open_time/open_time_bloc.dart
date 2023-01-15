@@ -33,7 +33,7 @@ class OpenTimeBloc extends Bloc<OpenTimeEvent, OpenTimeState> {
 
       OpenTime time = OpenTime.fromDocumentSnapshot(documentSnapshot);
 
-      yield OpenTimeLoadSuccess(time);
+      yield OpenTimeLoadSuccess(time, status: FormStatus.pure);
     } catch (e) {
       log(e.toString());
       yield OpenTimeFail();
@@ -55,9 +55,9 @@ class OpenTimeBloc extends Bloc<OpenTimeEvent, OpenTimeState> {
           return e;
         }).toList();
 
-        yield OpenTimeLoadSuccess(OpenTime(copyList));
+        yield OpenTimeLoadSuccess(OpenTime(copyList), status: FormStatus.dirty);
       } else {
-        yield (OpenTimeLoadSuccess(OpenTime(copyList..add(event.openDay))));
+        yield OpenTimeLoadSuccess(OpenTime(copyList..add(event.openDay)), status: FormStatus.dirty);
       }
     }
   }

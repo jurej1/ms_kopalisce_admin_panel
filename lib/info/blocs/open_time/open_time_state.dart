@@ -9,10 +9,17 @@ abstract class OpenTimeState extends Equatable {
 
 class OpenTimeLoading extends OpenTimeState {}
 
+enum FormStatus { pure, dirty }
+
 class OpenTimeLoadSuccess extends OpenTimeState {
   final OpenTime openTime;
 
-  const OpenTimeLoadSuccess(this.openTime);
+  final FormStatus status;
+
+  const OpenTimeLoadSuccess(
+    this.openTime, {
+    required this.status,
+  });
 
   @override
   List<Object> get props => [openTime];

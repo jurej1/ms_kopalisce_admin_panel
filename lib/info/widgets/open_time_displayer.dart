@@ -6,9 +6,11 @@ class OpenTimeDisplayer extends StatelessWidget {
   const OpenTimeDisplayer({
     Key? key,
     required this.openTime,
+    required this.status,
   }) : super(key: key);
 
   final OpenTime openTime;
+  final FormStatus status;
 
   @override
   Widget build(BuildContext context) {
