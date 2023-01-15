@@ -27,9 +27,13 @@ class QuestionsView extends StatelessWidget {
         height: size.height,
         width: size.width,
         child: BlocBuilder<QuestionsListBloc, QuestionsListState>(
+          buildWhen: ((previous, current) => true),
           builder: (context, state) {
             if (state is QuestionsListLoadSuccess) {
-              return QuestionsList(questions: state.questions);
+              return QuestionsList(
+                key: ValueKey(state.questions.length),
+                questions: state.questions,
+              );
             } else if (state is QuestionsListLoading) {
               return const _LoadingScreen();
             } else if (state is QuestionsListFail) {
