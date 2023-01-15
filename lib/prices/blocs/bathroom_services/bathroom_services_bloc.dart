@@ -18,6 +18,8 @@ class BathroomServicesBloc extends Bloc<BathroomServicesEvent, BathroomServicesS
   Stream<BathroomServicesState> mapEventToState(BathroomServicesEvent event) async* {
     if (event is BathroomServicesLoadRequested) {
       yield* _mapLoadRequestedToState();
+    } else if (event is BathroomServicesItemRemoved) {
+      yield* _mapRemovedToState(event);
     }
   }
 
@@ -31,6 +33,18 @@ class BathroomServicesBloc extends Bloc<BathroomServicesEvent, BathroomServicesS
       yield BathroomServicesLoadSuccess(tickets);
     } catch (e) {
       yield BathroomServicesLoadFail();
+    }
+  }
+
+  Stream<BathroomServicesState> _mapRemovedToState(BathroomServicesItemRemoved event) async* {
+    if (state is BathroomServicesLoadSuccess) {
+      final currentList = (state as BathroomServicesLoadSuccess).tickets;
+
+      List<Ticket> copyList = List.from(currentList);
+
+      copyList.removeWhere((element) => element.id == event.ticket.id);
+
+      yield (BathroomServicesLoadSuccess(copyList));
     }
   }
 }

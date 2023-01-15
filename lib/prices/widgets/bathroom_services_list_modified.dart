@@ -52,7 +52,23 @@ class _ListTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(item.title),
+        const Spacer(),
         Text('€${item.price}'),
+        BlocConsumer<DeleteBathroomTicketCubit, DeleteBathroomTicketState>(
+          listener: (context, state) {
+            if (state is DeleteBathroomTicketSuccess) {
+              BlocProvider.of<BathroomServicesBloc>(context).add(BathroomServicesItemRemoved(item));
+            }
+          },
+          builder: (context, state) {
+            return IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                BlocProvider.of<DeleteBathroomTicketCubit>(context).delete(item);
+              },
+            );
+          },
+        )
       ],
     );
   }
