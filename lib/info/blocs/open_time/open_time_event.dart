@@ -8,3 +8,9 @@ abstract class OpenTimeEvent extends Equatable {
 }
 
 class OpenTimeLoadRequested extends OpenTimeEvent {}
+
+class OpenTimeElementUpdated extends OpenTimeEvent {
+  final OpenDay openDay;
+
+  const OpenTimeElementUpdated(this.openDay);
+}
