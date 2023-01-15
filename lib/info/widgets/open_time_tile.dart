@@ -42,7 +42,7 @@ class OpenTimeTile extends StatelessWidget {
                 }
               });
             },
-            child: Text(val?.opens != null ? 'Opens: ${val!.opens.toString()}' : 'Nan'),
+            child: Text(val?.opens != null ? 'Opens: ${val!.opens?.hour}:${val!.opens?.minute}' : 'Nan'),
           ),
           const SizedBox(width: 10),
           ElevatedButton(
@@ -64,7 +64,7 @@ class OpenTimeTile extends StatelessWidget {
                 }
               });
             },
-            child: Text(val?.closes != null ? 'Closes: ${val!.closes.toString()}' : 'Nan'),
+            child: Text(val?.closes != null ? 'Closes: ${val!.closes?.hour}: ${val!.closes?.minute}' : 'Nan'),
           ),
         ],
       ),
