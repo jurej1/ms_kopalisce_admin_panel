@@ -31,7 +31,7 @@ class OpenTimeDisplayer extends StatelessWidget {
                     initialTime: val?.opens ?? TimeOfDay.now(),
                   );
                 },
-                child: Text(val?.opens != null ? 'Opens: ${val!.opens.toString()}' : 'nan'),
+                child: Text(val?.opens != null ? 'Opens: ${val!.opens.toString()}' : 'Nan'),
               ),
               const SizedBox(width: 10),
               ElevatedButton(
