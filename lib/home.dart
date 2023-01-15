@@ -29,6 +29,13 @@ class Home extends StatelessWidget {
                   },
                   child: const Text('Open Time Form'),
                 ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(AddAdditionalInfoForm.route(context));
+                  },
+                  child: const Text('Add additional info'),
+                ),
               ],
             ),
             const SizedBox(height: 20),
