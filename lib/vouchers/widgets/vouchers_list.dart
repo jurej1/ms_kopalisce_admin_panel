@@ -70,6 +70,7 @@ class _ListItem extends StatelessWidget {
                     Text('Number: ${item.voucherNumber}'),
                   ],
                 ),
+                const Spacer(),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(VoucherQRDisplayer.route(context, data: item.voucherNumber));
