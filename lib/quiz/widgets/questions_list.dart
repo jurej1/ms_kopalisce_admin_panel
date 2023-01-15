@@ -24,7 +24,10 @@ class QuestionsList extends StatelessWidget {
           create: (context) => DeleteQuestionCubit(
             RepositoryProvider.of<QuizRepository>(context),
           ),
-          child: _ListItem(item: item),
+          child: _ListItem(
+            item: item,
+            key: ValueKey(item),
+          ),
         );
       },
       separatorBuilder: (context, index) {
