@@ -21,6 +21,8 @@ class VouchersListBloc extends Bloc<VouchersListEvent, VouchersListState> {
   Stream<VouchersListState> mapEventToState(VouchersListEvent event) async* {
     if (event is VouchersListLoadRequested) {
       yield* _mapLoadRequestedToState();
+    } else if (event is VouchersListItemRemoved) {
+      yield* _mapItemRemovedToState(event);
     }
   }
 
@@ -36,6 +38,18 @@ class VouchersListBloc extends Bloc<VouchersListEvent, VouchersListState> {
     } catch (error) {
       log(error.toString());
       yield VouchersListFail();
+    }
+  }
+
+  Stream<VouchersListState> _mapItemRemovedToState(VouchersListItemRemoved event) async* {
+    if (state is VouchersListLoadSuccess) {
+      final currentList = (state as VouchersListLoadSuccess).vouchers;
+
+      List<Voucher> copyList = List.from(currentList);
+
+      copyList.removeWhere((element) => element.id == event.item.id);
+
+      yield VouchersListLoadSuccess(copyList);
     }
   }
 }

@@ -8,3 +8,9 @@ abstract class VouchersListEvent extends Equatable {
 }
 
 class VouchersListLoadRequested extends VouchersListEvent {}
+
+class VouchersListItemRemoved extends VouchersListEvent {
+  final Voucher item;
+
+  const VouchersListItemRemoved(this.item);
+}
