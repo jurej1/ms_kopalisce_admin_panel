@@ -28,7 +28,7 @@ class OpenTimeView extends StatelessWidget {
           if (state is OpenTimeLoading) {
             return const _LoadingScreen();
           } else if (state is OpenTimeLoadSuccess) {
-            return Container();
+            return OpenTimeDisplayer(openTime: state.openTime);
           } else if (state is OpenTimeFail) {
             return Container();
           }

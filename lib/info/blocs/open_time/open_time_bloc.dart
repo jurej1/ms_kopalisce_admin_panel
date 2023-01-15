@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
@@ -31,6 +33,7 @@ class OpenTimeBloc extends Bloc<OpenTimeEvent, OpenTimeState> {
 
       yield OpenTimeLoadSuccess(time);
     } catch (e) {
+      log(e.toString());
       yield OpenTimeFail();
     }
   }
