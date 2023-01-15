@@ -22,6 +22,30 @@ class OpenTimeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: BlocBuilder<OpenTimeBloc, OpenTimeState>(
+        builder: (context, state) {
+          if (state is OpenTimeLoading) {
+            return const _LoadingScreen();
+          } else if (state is OpenTimeLoadSuccess) {
+            return Container();
+          } else if (state is OpenTimeFail) {
+            return Container();
+          }
+          return Container();
+        },
+      ),
+    );
+  }
+}
+
+class _LoadingScreen extends StatelessWidget {
+  const _LoadingScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
   }
 }

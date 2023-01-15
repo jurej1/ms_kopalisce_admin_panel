@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ms_kopalisce_admin_panel/info/info.dart';
 
 import 'prices/prices.dart';
 import 'quiz/quiz.dart';
@@ -23,7 +24,9 @@ class Home extends StatelessWidget {
             Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(OpenTimeView.route(context));
+                  },
                   child: const Text('Open Time Form'),
                 ),
               ],
