@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    //TODO
+                    Navigator.of(context).push(AdditionalinfoView.route());
                   },
                   child: const Text('Load Additional Info'),
                 ),

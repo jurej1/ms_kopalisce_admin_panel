@@ -7,4 +7,4 @@ abstract class AditionalInfoListEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AdditionalInfoListLoadRequested extends AdditionalInfoFormState {}
+class AdditionalInfoListLoadRequested extends AditionalInfoListEvent {}
