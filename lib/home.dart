@@ -36,6 +36,13 @@ class Home extends StatelessWidget {
                   },
                   child: const Text('Add additional info'),
                 ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    //TODO
+                  },
+                  child: const Text('Load Additional Info'),
+                ),
               ],
             ),
             const SizedBox(height: 20),
